@@ -1,10 +1,15 @@
 const express = require("express");
 const server = express();
 
-server.get("/curso", (req, res) => {
-    console.log("Acessou a rota");
+// Query params: ?nome=NodeJs
+// Route params: /curso/2
+// Request Body: { nome: "NodeJs", tipo: "Backend"}
 
-    return res.json({mensagem: "Hello World", curso: "Node Js"})
+server.get("/curso/:id", (req, res) => {
+    // const nome = req.query.nome;
+    const id = req.params.id;
+
+    return res.json({curso: `Aprendendo ${id}`})
 })
 
 server.listen(3000);
