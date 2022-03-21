@@ -5,7 +5,7 @@ const server = express();
 // Route params: /curso/2
 // Request Body: { nome: "NodeJs", tipo: "Backend"}
 
-const cursos = ["NodeJs", "Javascript", "React Native"];
+const cursos = ["Python", "NodeJs", "Javascript", "React Native"];
 
 server.get("/curso/:index", (req, res) => {
     // const nome = req.query.nome;

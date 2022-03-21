@@ -26,7 +26,7 @@ const server = express();
 const cursos = ["NodeJs", "Javascript", "React Native"];
 
 server.get("/curso/:index", (req, res) => {
-    // const nome = req.query.nome;
+    
     const { index } = req.params;
 
     return res.json({curso: `Aprendendo ${cursos[index]}`})
