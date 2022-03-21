@@ -1,3 +1,18 @@
+por padrão o express nao vai entender json, para isso use
+
+server.use(expres.json())
+
+
+O método splice() altera o conteúdo de uma lista, adicionando novos elementos enquanto remove elementos antigos.
+
+```javascript
+//remove 1 elemento do índice 3
+removed = myFish.splice(3, 1);
+//myFish é ["angel", "clown", "drum", "surgeon"]
+//removed é ["mandarim"]
+```
+
+```javascript
 const express = require("express");
 const server = express();
 
@@ -63,3 +78,5 @@ server.delete("/cursos/:index", (req, res) => {
 
 server.listen(3000);
 
+
+```
