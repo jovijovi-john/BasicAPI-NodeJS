@@ -1,3 +1,64 @@
+todo tipo de função que está entre o pedido da requisição entre a resposta final
+
+```javascript
+server.post("/cursos", (req, res) => {
+    const { name } = req.body;
+
+    cursos.push(name);
+
+    return res.json(cursos);
+})
+```
+essa função acima, (req, res) => {} é um middleware
+
+=> tem um middleware global que é chamado independente da rota
+
+Exemplo de middleware global:
+
+```javascript
+server.use((req, res) => {
+    console.log("REQUISIÇÃO CHAMADA");
+})
+```
+
+so que nesse caso, qualquer requisição que eu fizer, esse middleware vai atrapalhar, ele vai executar mas vai ficar rodando infinitamente. Para resolver isso, receba como parâmetro um next, e retorne sua instância. Assim ele vai seguir o fluxo.
+
+```javascript
+server.use((req, res, next) => {
+    console.log("REQUISIÇÃO CHAMADA");
+    return next()
+})
+```
+
+para chamar um middleware sempre que entrar numa rota:
+
+```javascript
+// middleware que verifica se está vindo um name no body das requisições post
+function checkCurso(req, res, next){
+
+    // se não tiver a propridade name
+    if(!req.body.name){
+        return res.status(400).json({error: "Nome do curso é obrigatório"})
+    }
+
+    return next();
+}
+
+// post (Criando um novo curso)
+
+server.post("/cursos", checkCurso, (req, res) => {
+    const { name } = req.body;
+
+    cursos.push(name);
+
+    return res.json(cursos);
+})
+```
+
+=> podemos usar mais de um middleware como "listener"
+=> podemos manipular req e res com os middlewares
+
+```javascript
 const express = require("express");
 const server = express();
 
@@ -97,3 +158,5 @@ server.delete("/cursos/:index", checkIndexCurso, (req, res) => {
 
 server.listen(3000);
 
+
+```
