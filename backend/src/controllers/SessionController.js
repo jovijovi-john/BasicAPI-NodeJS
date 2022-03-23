@@ -21,9 +21,7 @@ class SessionController {
         })
 
         // Se não tiver nenhum usuário com esse email, criaremos um
-
-        if(!user){
-            
+        if(!user){  
             // criando no banco de dados com esse email. Como é algo que pode demorar, devemos usar async
             user = await User.create({
                 email: email

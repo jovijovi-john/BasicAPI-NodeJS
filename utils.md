@@ -35,3 +35,7 @@ Para que possamos utilizar aquela sintaxe de import, devemos instalar o sucrase:
     https://prnt.sc/6MK5J9aMn84l
 
     yarn add mongoose => para poder usar o mongo
+
+=> Para trabalharmos com o multipart:
+
+    yarn add multer
