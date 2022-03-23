@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import path from "path";
 import routes from "./routes";
 import conection from "./conection.js";
 
@@ -21,6 +22,11 @@ class App{
     }
 
     middlewares(){
+        this.server.use(
+            "/files",
+            express.static(path.resolve(__dirname, "..", "uploads"))
+        );
+
         // vamos usar o json
         this.server.use(express.json());
     }

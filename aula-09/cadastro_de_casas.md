@@ -93,3 +93,20 @@ routes.js:
 como queremos enviar apenas uma imagem, é .single(), caso contrário seria .array(). Dentro dele, passamos o nome do campo que estamos passando lá
 
 como estamos passando o upload.single() na nossa rota, temos acesso ao req.file
+
+===============================================================================================================
+
+
+Agora vamos colocar essas casas no banco
+
+https://expressjs.com/pt-br/starter/static-files.html para entender melhor como funciona a disponibilização de arquivos estáticos com express
+
+resumindo:
+
+    primeira coisa que fizemos: criamos uma rota para criar uma nova casa
+    
+    utilizamos o multipart form data onde configuramos o multer para nos ajudar 
+    
+    no header da requisição para cadastrar uma casa passamos o uid do usuário que ta criando essa casa pra gente saber depois para fazer filtros, etc
+
+    fizemos um campo virtual para acessar a imagem lá no front end
