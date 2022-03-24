@@ -110,3 +110,25 @@ resumindo:
     no header da requisição para cadastrar uma casa passamos o uid do usuário que ta criando essa casa pra gente saber depois para fazer filtros, etc
 
     fizemos um campo virtual para acessar a imagem lá no front end
+
+
+
+=============================================================================================
+
+no HouseController vamos criar um método index para listar todas as casas que atendam a um determinado status requisitado pelo usuário
+
+agora vamos fazer um método para editar uma casa que já existe:
+
+    update
+
+    para editar algum item da tabela, basta utilizar o método updateOne e passar no primeiro parâmetro o id do item que será editado
+
+    não permitir que um usuário edite casas que não sejam suas, ou seja, a casa deve ter o mesmo o uid que o usuário atual para poder alterar alguma coisa
+
+Para deletar, usamos o método destroy no HouseController
+
+    nao precisamos passar o id da casa na rota, na verdade deve ser pelo json
+    
+     await House.findByIdAndDelete({
+        _id: house_id
+    })
