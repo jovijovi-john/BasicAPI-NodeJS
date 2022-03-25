@@ -10,12 +10,15 @@ qtd_aulas = int(input("Informe quantas aulas você quer: "))
 numAula = int(input("Informe qual será a aula inicial: "))
 
 try:
-    for i in range(numAula, qtd_aulas + 1):
+    for i in range(numAula, qtd_aulas + numAula):
 
+        print(f"{numAula} {qtd_aulas} {numAula}")
         if numAula < 10:
             numAulaString = "0" + str(numAula)
         else:
             numAulaString = str(numAula)
+
+        print(i)
         
         numAula += 1
         dirName = dir + numAulaString

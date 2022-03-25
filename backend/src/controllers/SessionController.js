@@ -7,13 +7,26 @@
     *   destroy: quando queremos deletar uma sessão (excluir um usuário)
 */
 
+import * as Yup from "yup";
+
 import User from "../models/User";
 
 class SessionController {
 
     async store(req, res){
+
+        const schema = Yup.object().shape({
+            email: Yup.string().email().required()
+        })
+
         // pegando o email que ele ta mandando la pela requisição
         const { email } = req.body;
+
+        if(!(await schema.isValid(req.body))){
+            return res.status(400).json({
+                error: "Informe um email válido"
+            })
+        }
         
         // findOne vai procurar apenas um registro. Vamos ver se já existe esse email no banco de dados
         let user = await User.findOne({
