@@ -1,5 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
+import cors from "cors";
+
 import path from "path";
 import routes from "./routes";
 import conection from "./conection.js";
@@ -22,6 +24,10 @@ class App{
     }
 
     middlewares(){
+
+        // cors(tornar a api pública)
+        this.server.use(cors());
+
         this.server.use(
             "/files",
             express.static(path.resolve(__dirname, "..", "uploads"))

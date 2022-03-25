@@ -8,7 +8,7 @@ class HouseController {
         const { status } = req.query;
 
         // ta buscando todas as casas do model de casa ( tabela de casas) que tenha o status === status da requisição
-        const houses = await House.find({ status})
+        const houses = await House.find({ status })
 
         return res.json(houses);
     }
