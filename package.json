@@ -1,10 +1,5 @@
 {
   "dependencies": {
-    "multer": "^1.4.4",
-    "pg": "^7.0.0",
-    "pg-hstore": "^2.3.4"
-  },
-  "devDependencies": {
-    "sequelize-cli": "^6.4.1"
+    "multer": "^1.4.4"
   }
 }
